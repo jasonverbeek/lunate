@@ -1,0 +1,28 @@
+[tasks.echo]
+command = "echo"
+args = ["hello", "world"]
+
+[tasks.pwd]
+command = "pwd"
+
+[tasks.both]
+serial_tasks = ["echo", "pwd"]
+
+[tasks.both_at_the_same_time]
+parallel_tasks = ["echo", "pwd"]
+
+[tasks.env_example]
+command = "sh"
+args = ["-c", "echo FOO=$FOO"]
+env = { FOO = "BAR" }
+
+[tasks.hidden]
+command = "echo"
+args = ["I am sneaky"]
+hide = true
+
+[tasks.shell]
+shell_script = '''
+VAR="World"
+echo Hello ${VAR}!
+'''
